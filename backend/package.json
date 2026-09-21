@@ -1,0 +1,38 @@
+{
+  "name": "know-india-backend",
+  "version": "1.0.0",
+  "description": "Backend for Know India website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "vercel-build": "rm -rf node_modules/@huggingface node_modules/faiss-node node_modules/onnxruntime-node node_modules/onnxruntime-common node_modules/onnxruntime-web node_modules/@mediapipe && echo Vercel build completed",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@aryanjsx/knowindia": "^1.2.4",
+    "axios": "^1.15.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "express-rate-limit": "^8.3.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "sanitize-html": "^2.17.3"
+  },
+  "optionalDependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "faiss-node": "^0.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

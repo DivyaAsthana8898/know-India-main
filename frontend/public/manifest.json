@@ -1,0 +1,25 @@
+{
+  "name": "Know India",
+  "short_name": "KnowIndia",
+  "description": "Discover India's 28+ states, tourist attractions, heritage sites, temples, beaches, and hidden gems. Your ultimate India travel guide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "tourism", "education"],
+  "lang": "en-IN"
+}

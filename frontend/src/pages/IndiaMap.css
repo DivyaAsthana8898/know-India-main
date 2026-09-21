@@ -1,0 +1,240 @@
+/* Base styles for the map */
+.colorful-india-map {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+}
+
+.colorful-india-map:hover {
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
+}
+
+.colorful-india-map path {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* State-specific colors - Vibrant palette */
+.colorful-india-map [id="AN"] { fill: #FF9AA2 !important; }
+.colorful-india-map [id="AP"] { fill: #FFB7B2 !important; }
+.colorful-india-map [id="AR"] { fill: #FFDAC1 !important; }
+.colorful-india-map [id="AS"] { fill: #E2F0CB !important; }
+.colorful-india-map [id="BR"] { fill: #B5EAD7 !important; }
+.colorful-india-map [id="CH"] { fill: #C7CEEA !important; }
+.colorful-india-map [id="CT"] { fill: #F0E6EF !important; }
+.colorful-india-map [id="DD"] { fill: #D4F0F0 !important; }
+.colorful-india-map [id="DL"] { fill: #FFC8DD !important; }
+.colorful-india-map [id="DN"] { fill: #BDE0FE !important; }
+.colorful-india-map [id="GA"] { fill: #A2D2FF !important; }
+.colorful-india-map [id="GJ"] { fill: #FFC09F !important; }
+.colorful-india-map [id="HP"] { fill: #FFEE93 !important; }
+.colorful-india-map [id="HR"] { fill: #FCF6BD !important; }
+.colorful-india-map [id="JH"] { fill: #D0F4DE !important; }
+.colorful-india-map [id="JK"] { fill: #A9DEF9 !important; }
+.colorful-india-map [id="KA"] { fill: #E4C1F9 !important; }
+.colorful-india-map [id="KL"] { fill: #FF99C8 !important; }
+.colorful-india-map [id="LA"] { fill: #D0D1FF !important; }
+.colorful-india-map [id="LD"] { fill: #ADE8F4 !important; }
+.colorful-india-map [id="MH"] { fill: #FFD166 !important; }
+.colorful-india-map [id="ML"] { fill: #06D6A0 !important; }
+.colorful-india-map [id="MN"] { fill: #118AB2 !important; }
+.colorful-india-map [id="MP"] { fill: #EF476F !important; }
+.colorful-india-map [id="MZ"] { fill: #073B4C !important; }
+.colorful-india-map [id="NL"] { fill: #F15BB5 !important; }
+.colorful-india-map [id="OR"] { fill: #9B5DE5 !important; }
+.colorful-india-map [id="PB"] { fill: #F8961E !important; }
+.colorful-india-map [id="PY"] { fill: #F9C74F !important; }
+.colorful-india-map [id="RJ"] { fill: #90BE6D !important; }
+.colorful-india-map [id="SK"] { fill: #43AA8B !important; }
+.colorful-india-map [id="TG"] { fill: #577590 !important; }
+.colorful-india-map [id="TN"] { fill: #F94144 !important; }
+.colorful-india-map [id="TR"] { fill: #F3722C !important; }
+.colorful-india-map [id="UP"] { fill: #F8961E !important; }
+.colorful-india-map [id="UT"] { fill: #F9C74F !important; }
+.colorful-india-map [id="WB"] { fill: #90BE6D !important; }
+
+/* Hover effect with glow */
+.colorful-india-map path:hover {
+  filter: brightness(1.15) drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+  stroke: #1f2937 !important;
+  stroke-width: 2 !important;
+  transform: scale(1.02);
+  transform-origin: center;
+  z-index: 10;
+}
+
+/* Dark mode map adjustments */
+.colorful-india-map.dark-map path:hover {
+  stroke: #ffffff !important;
+  filter: brightness(1.2) drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+}
+
+/* ===== State Zoom Animation ===== */
+
+.map-zoom-wrapper {
+  transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* Fade all non-selected states when zooming */
+.colorful-india-map.state-zooming path {
+  transition: opacity 400ms ease, filter 400ms ease;
+  opacity: 0.25;
+  filter: brightness(0.7) saturate(0.4) !important;
+  pointer-events: none;
+}
+
+/* Keep the selected state fully visible and highlighted */
+.colorful-india-map.state-zooming path[data-selected="true"] {
+  opacity: 1;
+  filter: brightness(1.2) drop-shadow(0 0 16px rgba(249, 115, 22, 0.6)) !important;
+  stroke: #f97316 !important;
+  stroke-width: 2.5 !important;
+  z-index: 20;
+}
+
+.colorful-india-map.dark-map.state-zooming path[data-selected="true"] {
+  filter: brightness(1.3) drop-shadow(0 0 20px rgba(251, 146, 60, 0.7)) !important;
+  stroke: #fb923c !important;
+}
+
+/* Map container */
+.map-container {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Mandala logo animation */
+.mandala-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mandala-logo {
+  animation: rotate 30s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mandala-container:hover .mandala-logo {
+  animation-duration: 15s;
+}
+
+/* Quote container enhancements */
+.quote-container {
+  transition: all 0.3s ease;
+}
+
+.quote-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Gradient background - keeping for MapTour compatibility */
+.gradient-background {
+  position: relative;
+  z-index: 1;
+}
+
+/* State info section */
+.state-info {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .colorful-india-map {
+    max-width: 100%;
+}
+}
+
+@media (max-width: 768px) {
+  .colorful-india-map {
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+  .map-container {
+    padding: 1rem;
+}
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+}
+  50% {
+    transform: translateY(-10px);
+}
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.8);
+}
+}
+
+/* Custom scrollbar for quote container */
+.quote-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.quote-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quote-container::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 2px;
+}
+
+.quote-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Decorative elements for light theme */
+.light-mode .decorative-corner {
+  display: none;
+}
+
+/* Enhanced focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+.gradient-background {
+    background: white !important;
+  }
+  
+  .colorful-india-map path {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
